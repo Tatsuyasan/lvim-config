@@ -19,6 +19,9 @@ keymap("n", "<C-Space>", "<cmd>WhichKey \\<space><cr>", opts)
 keymap("n", "<C-s>", ":w<cr>", opts)
 keymap("i", "<C-s>", "<Esc>:w<cr>l", opts)
 
+keymap("n", "<M-h>", ":BufferLineMovePrev<cr>", opts)
+keymap("n", "<M-l>", ":BufferLineMoveNext<cr>", opts)
+
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 
