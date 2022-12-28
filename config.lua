@@ -5,6 +5,7 @@ Linters should be
 filled in as strings with either
 a global executable or a path to
 an executable
+
 ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
@@ -110,7 +111,6 @@ lvim.builtin.treesitter.highlight.enable = true
 --     filetypes = { "typescript", "typescriptreact" },
 --   },
 -- }
-
 -- -- set additional linters
 -- local linters = require "lvim.lsp.null-ls.linters"
 -- linters.setup {
@@ -151,7 +151,6 @@ lvim.builtin.treesitter.highlight.enable = true
 --   end,
 -- })
 
-
 -- Hot reload customs configs
 reload 'user.keymaps'
 reload 'user.beacon'
@@ -168,3 +167,4 @@ reload 'user.neoscroll'
 reload 'user.hlslens'
 reload 'user.harpoon'
 reload 'user.hop'
+reload 'user.betterescape'

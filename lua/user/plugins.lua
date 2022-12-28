@@ -8,6 +8,7 @@ lvim.plugins = {
     "kevinhwang91/nvim-hlslens",
     "rainbowhxch/beacon.nvim",
     "sindrets/diffview.nvim",
+    "max397574/better-escape.nvim",
     {
         "phaazon/hop.nvim",
         branch = 'v2'
