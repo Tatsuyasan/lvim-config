@@ -153,7 +153,6 @@ lvim.builtin.treesitter.highlight.enable = true
 
 -- Hot reload customs configs
 reload 'user.keymaps'
-reload 'user.beacon'
 reload 'user.options'
 reload 'user.plugins'
 reload 'user.lsp'
