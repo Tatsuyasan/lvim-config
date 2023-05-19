@@ -1,35 +1,58 @@
--- general
+if vim.g.neovide then
+  vim.opt.guifont = "MonoLisa:h24"
+
+  vim.g.neovide_transparency = 1
+  vim.g.transparency = 0.8
+  vim.g.neovide_scroll_animation_length = 0.3
+  vim.g.neovide_refresh_rate = 60
+  vim.g.neovide_confirm_quit = true
+  vim.g.neovide_input_macos_alt_is_meta = false
+end
+
 lvim.log.level = "warn"
-lvim.format_on_save.enabled = true
-lvim.colorscheme = "lunar"
+lvim.format_on_save = true
 
--- to disable icons and use a minimalist setup, uncomment the following
--- lvim.use_icons = false
+lvim.builtin.treesitter.ensure_installed = {
+  "bash",
+  "c",
+  "javascript",
+  "json",
+  "lua",
+  "python",
+  "typescript",
+  "tsx",
+  "css",
+  "rust",
+  "java",
+  "yaml",
+}
 
---vim.opt.guicursor = ""
+lvim.builtin.terminal.active = true
+lvim.builtin.terminal.open_mapping = "<c-t>"
+lvim.builtin.nvimtree.setup.view.side = "left"
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
+lvim.builtin.nvimtree.setup.filters.custom = {}
 
-vim.opt.nu = true
-vim.opt.relativenumber = true
+lvim.builtin.treesitter.ignore_install = {}
+lvim.builtin.treesitter.highlight.enabled = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+lvim.builtin.project.detection_methods = { "lsp", "pattern" }
+lvim.builtin.project.patterns = {
+  ".git",
+  "package-lock.json",
+  "yarn.lock",
+  "package.json",
+  "requirements.txt",
+  "README.md"
+}
 
-vim.opt.smartindent = true
+vim.opt.shell = "/bin/zsh"
+lvim.format_on_save = true
 
-vim.opt.wrap = false
+vim.o.linebreak = true
+vim.o.wrap = false
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
--- vim.opt.swapfile = false
--- vim.opt.backup = false
--- vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
--- vim.opt.undofile = true
-
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
-
--- vim.opt.termguicolors = true
-
--- vim.opt.scrolloff = 8
--- vim.opt.signcolumn = "yes"
--- vim.opt.isfname:append("@-@")
+-- lvim.builtin.telescope.defaults.path_display = {
+--   shorten = 4,
+-- }

@@ -1,28 +1,38 @@
-local hop_ok, hop = pcall(require, 'hop')
+local default_opts = { noremap = true, silent = true }
 
-if not hop_ok then
-    return
+local keymap = function(mode, from, to, opts)
+  if not opts then opts = default_opts end
+  vim.keymap.set(mode, from, to, opts)
 end
 
-hop.setup { keys = 'etovxqpdygfblzhckisuran' }
+local nkeymap = function(from, to, opts)
+  keymap("n", from, to, opts)
+end
 
-local directions = require('hop.hint').HintDirection
-local keymap = vim.keymap.set
+local hop_ok, hop = pcall(require, 'hop')
+if hop_ok then
+  hop.setup { keys = 'etovxqpdygfblzhckisuran' }
 
-keymap('', 'S', '<cmd>:HopWord<cr>')
-
-keymap('', 'f', function()
+  local directions = require('hop.hint').HintDirection
+  local modes = { 'n', 'o' }
+  local opts = { remap = true, silent = true }
+  keymap(modes, 'f', function()
     hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
-end, { remap = true })
+  end, opts)
 
-keymap('', 'F', function()
+  keymap(modes, 'F', function()
     hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
-end, { remap = true })
+  end, opts)
 
-keymap('', 't', function()
+  keymap(modes, 't', function()
     hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
-end, { remap = true })
+  end, opts)
 
-keymap('', 'T', function()
+  keymap(modes, 'T', function()
     hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
-end, { remap = true })
+  end, opts)
+
+  nkeymap('S', function()
+    hop.hint_words()
+  end, opts)
+end
