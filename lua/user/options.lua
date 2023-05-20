@@ -25,6 +25,8 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "java",
   "yaml",
+  "markdown",
+  "markdown_inline"
 }
 
 lvim.builtin.terminal.active = true
@@ -32,19 +34,64 @@ lvim.builtin.terminal.open_mapping = "<c-t>"
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 lvim.builtin.nvimtree.setup.filters.custom = {}
+lvim.builtin.telescope.pickers = {
+  layout_config = {
+    preview_width = 100
+  },
+  find_files = {
+    layout_config = {
+      width = 0.50,
+      height = 0.30,
+    },
+  },
+  git_files = {
+    layout_config = {
+      width = 0.50,
+      height = 0.30,
+    },
+  },
+  grep_string = {
+    layout_config = {
+      width = 0.50,
+      height = 0.30,
+    },
+  },
+  live_grep = {
+    preview_width = 1,
+
+    layout_config = {
+      width = 0.50,
+      height = 0.30,
+    },
+  },
+}
+
+-- TODO: ouvrir quickfix avec telescope et trouble
+local actions = require("telescope.actions")
+local trouble = require("trouble.providers.telescope")
+
+local telescope = require("telescope")
+
+-- telescope.setup {
+--   defaults = {
+--     mappings = {
+--       i = { ["<c-t>"] = trouble.open_with_trouble },
+--       n = { ["<c-t>"] = trouble.open_with_trouble },
+--     },
+--   },
+-- }
+
+-- lvim.builtin.telescope.defaults.mappings = {
+-- lvim.builtin.telescope.defaults.mappings = {
+--   i = { ["<C-q>"] = trouble.open_with_trouble },
+--   n = { ["<C-q>"] = trouble.open_with_trouble },
+-- }
 
 lvim.builtin.treesitter.ignore_install = {}
 lvim.builtin.treesitter.highlight.enabled = true
+lvim.builtin.treesitter.autotag.enable = true
 
-lvim.builtin.project.detection_methods = { "lsp", "pattern" }
-lvim.builtin.project.patterns = {
-  ".git",
-  "package-lock.json",
-  "yarn.lock",
-  "package.json",
-  "requirements.txt",
-  "README.md"
-}
+lvim.builtin.project.patterns = { ">Projects", ".git", "package.json" }
 
 vim.opt.shell = "/bin/zsh"
 lvim.format_on_save = true
@@ -53,6 +100,6 @@ vim.o.linebreak = true
 vim.o.wrap = false
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
--- lvim.builtin.telescope.defaults.path_display = {
---   shorten = 4,
--- }
+lvim.builtin.telescope.defaults.path_display = {
+  shorten = 4,
+}

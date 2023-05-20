@@ -7,7 +7,7 @@ local function button(keybind, txt, sc)
   --   { "SPC jdc", "  DearDiary Today Entry", ":DearDiaryToday<CR>" })
 end
 
-button("s", kind.icons.magic .. " Restore", ":lua require('persistence').load()<cr>")
+button("s", kind.icons.magic .. " Restore", "<cmd>lua require('persistence').load({ last = true })<cr>")
 button("C", kind.cmp_kind.Color .. " Colorscheme Config", ":e ~/.config/lvim/lua/user/colorscheme.lua<CR>")
 
 --     button("f", " " .. kind.cmp_kind.Folder .. " Explore", ":Telescope find_files<CR>"),

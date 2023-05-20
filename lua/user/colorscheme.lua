@@ -18,7 +18,7 @@ local themes = {
 }
 
 lvim.transparent_window = true
-lvim.colorscheme = themes.lunar
+lvim.colorscheme = themes.tokyonight_night
 
 local extra_opts = {
   sonokai = {

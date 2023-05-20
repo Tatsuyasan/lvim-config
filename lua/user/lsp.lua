@@ -2,7 +2,7 @@ local lvim_lsp = require('lvim.lsp')
 local ts = require('typescript')
 
 -- configure tsserver server manually.
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tsserver" })
+-- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tsserver" })
 
 local common_on_attach = lvim_lsp.common_on_attach
 local common_capabilities = lvim_lsp.common_capabilities()
@@ -17,16 +17,16 @@ lvim.lsp.on_attach_callback = function(client, bufnr)
   end
 end
 
-
 -- Typescript config using typescript.nvim
-ts.setup({
-  server = {
-    root_dir = require('lspconfig.util').root_pattern('.git'),
-    capabilities = common_capabilities,
-    on_attach = common_on_attach,
-  },
-})
+-- ts.setup({
+--   server = {
+--     root_dir = require('lspconfig.util').root_pattern('.git'),
+--     capabilities = common_capabilities,
+--     on_attach = common_on_attach,
+--   },
+-- })
 
+-- })
 -- -- Keeping this here for reference
 -- require("lvim.lsp.manager").setup("tsserver", {
 --   root_dir = require('lspconfig.util').root_pattern('.git'),

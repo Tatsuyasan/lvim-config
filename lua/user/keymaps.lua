@@ -5,12 +5,19 @@ lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
-vim.keymap.set('n', 'gn', ":tabe %<CR>")
+lvim.keys.normal_mode["<C-q>"] = "<cmd>Lspsaga show_buf_diagnostics<cr>"
 
-lvim.keys.normal_mode["<C-q>"] = function(bufnr)
-  actions.smart_send_to_qflist(bufnr)
-  require("telescope.builtin").quickfix()
-end
+vim.keymap.set('n', 'gn', ":tabe %<CR>")
+vim.keymap.set({ 'n', 'v', 'i' }, '<C-c>', "<Esc>")
+
+-- lvim.keys.normal_mode["<C-q>"] = function(bufnr)
+--   require("telescope.actions").smart_send_to_qflist(bufnr)
+--   require("telescope.builtin").quickfix()
+-- end
+lvim.lsp.buffer_mappings.normal_mode["K"] = {
+  "<cmd>Lspsaga hover_doc<CR>",
+  "Lspsaga hover doc"
+}
 
 lvim.lsp.buffer_mappings.normal_mode["gr"] = {
   ":lua require'telescope.builtin'.lsp_references()<cr>",

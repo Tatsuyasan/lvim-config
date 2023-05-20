@@ -10,8 +10,20 @@ lvim.plugins = {
       })
     end,
   },
-  { "petertriho/nvim-scrollbar" },
-  { "mbbill/undotree" },
+  -- {
+  --   "iamcco/markdown-preview.nvim",
+  --   build = function() vim.fn["mkdp#util#install"]() end,
+  -- }
+  {
+    "iamcco/markdown-preview.nvim",
+  },
+  {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  },
+  { 'NvChad/nvim-colorizer.lua' },
+  { 'petertriho/nvim-scrollbar' },
+  { 'mbbill/undotree' },
   { 'jose-elias-alvarez/typescript.nvim' },
   { 'kevinhwang91/nvim-hlslens' },
   { 'karb94/neoscroll.nvim' },
@@ -49,7 +61,24 @@ lvim.plugins = {
       })
     end
   },
-
+  {
+    "nvim-neorg/neorg",
+    build = ":Neorg sync-parsers",
+    opts = {
+      load = {
+        ["core.defaults"] = {},  -- Loads default behaviour
+        ["core.concealer"] = {}, -- Adds pretty icons to your documents
+        ["core.dirman"] = {      -- Manages Neorg workspaces
+          config = {
+            workspaces = {
+              notes = "~/notes",
+            },
+          },
+        },
+      },
+    },
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
   { "christoomey/vim-tmux-navigator" },
   { "tpope/vim-surround" },
   { "felipec/vim-sanegx",            event = "BufRead" },
@@ -67,12 +96,18 @@ lvim.plugins = {
     'phaazon/hop.nvim',
     branch = 'v2',
   },
-
   {
     'nvim-telescope/telescope-frecency.nvim',
     dependencies = { 'nvim-telescope/telescope.nvim', 'kkharji/sqlite.lua' },
   },
-
+  {
+    'tsakirist/telescope-lazy.nvim',
+    dependencies = { 'nvim-telescope/telescope.nvim' },
+  },
+  {
+    'LukasPietzschmann/telescope-tabs',
+    dependencies = { 'nvim-telescope/telescope.nvim' },
+  },
   {
     'AckslD/nvim-trevJ.lua',
     config = 'require("trevj").setup()',
@@ -82,6 +117,24 @@ lvim.plugins = {
       end)
     end,
   },
+  {
+    "AckslD/nvim-neoclip.lua",
+    dependencies = {
+      { 'kkharji/sqlite.lua', module = 'sqlite' },
+      {
+        'nvim-telescope/telescope.nvim',
+      },
+    },
+    config = function()
+      require('neoclip').setup()
+    end,
+  },
+  -- LSP saga
+  {
+    "glepnir/lspsaga.nvim",
+    event = "LspAttach",
+    dependencies = { "nvim-tree/nvim-web-devicons" }
+  }
 }
 
 table.insert(lvim.plugins, {
@@ -96,4 +149,8 @@ table.insert(lvim.plugins, {
 
 lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "frecency")
+  pcall(telescope.load_extension, "lazy")
+  pcall(telescope.load_extension, "tabs")
+  pcall(telescope.load_extension, "quickfix")
+  pcall(telescope.load_extension, "neoclip")
 end

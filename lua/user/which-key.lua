@@ -2,10 +2,8 @@ local kind = require('user.kind')
 
 local wk = lvim.builtin.which_key
 
-wk.mappings["a"] = { ":Alpha<cr>", kind.icons.screen .. " Dashboard" }
-
 wk.mappings["S"] = {
-  name = " persistence.nvim",
+  name = "Persistence",
   s = { "<cmd>lua require('persistence').load()<cr>", kind.icons.clock .. " Reload last session for dir" },
   l = { "<cmd>lua require('persistence').load({ last = true })<cr>", kind.icons.clock .. " Restore last session" },
   Q = { "<cmd>lua require('persistence').stop()<cr>", kind.icons.exit .. " Quit without saving session" },
@@ -25,7 +23,7 @@ wk.mappings["b"]["c"] = {
 }
 
 wk.mappings["m"] = {
-  name = ' ' .. kind.todo_comments.PERF .. " Harpoon",
+  name = kind.todo_comments.PERF .. " Harpoon",
   m = { ":lua require('harpoon.mark').add_file()<cr>", "Mark file" },
   t = { ":lua require('harpoon.ui').toggle_quick_menu()<cr>", "Toggle UI" },
   a = { ":lua require('harpoon.ui').nav_file(1)<cr>", "Goto mark 1" },
@@ -41,8 +39,8 @@ wk.mappings["m"] = {
   p = { ":lua require('harpoon.ui').nav_prev()<cr>", "Prev file" },
 }
 
-wk.mappings["W"] = {
-  name = ' ' .. kind.icons.screen .. " Window Ctrl",
+wk.mappings["w"] = {
+  name = kind.icons.screen .. " Window Ctrl",
   h = { '<C-w>|', 'Maximize window horizontally (|)' },
   v = { '<C-w>_', 'Maximize window vertically (_)' },
   ['='] = { '<C-w>=', 'Resize windows equally' },
@@ -51,7 +49,7 @@ wk.mappings["W"] = {
 }
 
 wk.mappings["G"] = {
-  name = ' ' .. kind.icons.hint .. " Github Copilot",
+  name = kind.icons.hint .. " Github Copilot",
   a = { ":lua require('copilot.suggestion').accept()<cr>", "Accept" },
   n = { ":lua require('copilot.suggestion').next()<cr>", "Next" },
   N = { ":lua require('copilot.suggestion').prev()<cr>", "Prev" },
@@ -61,8 +59,11 @@ wk.mappings["G"] = {
 
 wk.mappings['x'] = { ":xa<cr>", "Save All and Quit", }
 
+wk.mappings['y'] = { "<cmd>Telescope neoclip<cr>", "Neoclip telescope list", }
+
 wk.mappings["t"] = {
-  name = ' Telescope',
+  name = 'Telescope',
   p = { ':Telescope projects<cr>', 'Projects' }, -- requires telescope-project.nvim plugin
   r = { ':Telescope resume<cr>', 'Resume' },
+  l = { ':Telescope lazy<cr>', 'Lazy plugins' },
 }
