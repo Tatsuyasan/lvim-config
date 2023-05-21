@@ -25,8 +25,10 @@ local extra_opts = {
     styles = {
       espresso = "espresso",
       shusia = "shusia",
+      atlantis = "atlantis",
       default = "default",
     },
+    transparent_background = 2
   },
   ayu = {
     styles = {
@@ -50,10 +52,14 @@ if vim.g.neovide then
   return
 end
 
+vim.g.tokyonight_night_transparent_background = 2
+if lvim.colorscheme == themes.gruvbox_material then
+  vim.g.gruvbox_material_transparent_background = 2
+end
+
 if lvim.colorscheme == themes.sonokai then
-  vim.g.sonokai_style = "espresso"
-  vim.g.sonokai_style = "shusia"
-  vim.g.sonokai_style = "default"
+  vim.g.sonokai_style = extra_opts.sonokai.styles.atlantis
+  vim.g.sonokai_transparent_background = extra_opts.sonokai.transparent_background
 end
 
 if lvim.colorscheme == themes.edge then

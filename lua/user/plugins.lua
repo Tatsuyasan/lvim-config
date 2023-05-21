@@ -10,25 +10,16 @@ lvim.plugins = {
       })
     end,
   },
-  -- {
-  --   "iamcco/markdown-preview.nvim",
-  --   build = function() vim.fn["mkdp#util#install"]() end,
-  -- }
-  {
-    "iamcco/markdown-preview.nvim",
-  },
-  {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-  },
+  { 'jose-elias-alvarez/typescript.nvim' },
+  { 'windwp/nvim-autopairs' },
   { 'NvChad/nvim-colorizer.lua' },
   { 'petertriho/nvim-scrollbar' },
   { 'mbbill/undotree' },
-  { 'jose-elias-alvarez/typescript.nvim' },
   { 'kevinhwang91/nvim-hlslens' },
   { 'karb94/neoscroll.nvim' },
   { 'rainbowhxch/beacon.nvim' },
 
+  -- Themes
   { 'lunarvim/lunar.nvim' },
   { "morhetz/gruvbox" },
   { "sainnhe/gruvbox-material" },
@@ -42,37 +33,31 @@ lvim.plugins = {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   },
-
   {
     "folke/todo-comments.nvim",
     event = "BufRead",
-    config = function()
-      require("todo-comments").setup()
-    end
   },
-
   {
     "folke/persistence.nvim",
     event = "BufReadPre",
-    config = function()
-      require("persistence").setup({
-        dir = vim.fn.expand(vim.fn.stdpath "state" .. "/sessions/"),
-        options = { "buffers", "curdir", "tabpages", "winsize" }
-      })
-    end
   },
   {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
     opts = {
       load = {
-        ["core.defaults"] = {},  -- Loads default behaviour
-        ["core.concealer"] = {}, -- Adds pretty icons to your documents
-        ["core.dirman"] = {      -- Manages Neorg workspaces
+        ["core.defaults"] = {}, -- Loads default behaviour
+        ["core.concealer"] = {
+          config = {
+            icon_preset = 'diamond'
+          },
+        },                  -- Adds pretty icons to your documents
+        ["core.dirman"] = { -- Manages Neorg workspaces
           config = {
             workspaces = {
               notes = "~/notes",
             },
+            default_workspace = "notes"
           },
         },
       },
@@ -81,32 +66,11 @@ lvim.plugins = {
   },
   { "christoomey/vim-tmux-navigator" },
   { "tpope/vim-surround" },
-  { "felipec/vim-sanegx",            event = "BufRead" },
-  {
-    "windwp/nvim-ts-autotag",
-    config = function()
-      require("nvim-ts-autotag").setup()
-    end,
-  },
   { "tpope/vim-repeat" },
-
   { "ThePrimeagen/harpoon" },
-
   {
     'phaazon/hop.nvim',
     branch = 'v2',
-  },
-  {
-    'nvim-telescope/telescope-frecency.nvim',
-    dependencies = { 'nvim-telescope/telescope.nvim', 'kkharji/sqlite.lua' },
-  },
-  {
-    'tsakirist/telescope-lazy.nvim',
-    dependencies = { 'nvim-telescope/telescope.nvim' },
-  },
-  {
-    'LukasPietzschmann/telescope-tabs',
-    dependencies = { 'nvim-telescope/telescope.nvim' },
   },
   {
     'AckslD/nvim-trevJ.lua',
@@ -125,16 +89,31 @@ lvim.plugins = {
         'nvim-telescope/telescope.nvim',
       },
     },
-    config = function()
-      require('neoclip').setup()
-    end,
   },
   -- LSP saga
   {
     "glepnir/lspsaga.nvim",
     event = "LspAttach",
     dependencies = { "nvim-tree/nvim-web-devicons" }
-  }
+  },
+
+  -- Telescope extensions
+  {
+    'nvim-telescope/telescope-frecency.nvim',
+    dependencies = { 'nvim-telescope/telescope.nvim', 'kkharji/sqlite.lua' },
+  },
+  {
+    'tsakirist/telescope-lazy.nvim',
+    dependencies = { 'nvim-telescope/telescope.nvim' },
+  },
+  {
+    'LukasPietzschmann/telescope-tabs',
+    dependencies = { 'nvim-telescope/telescope.nvim' },
+  },
+  {
+    'debugloop/telescope-undo.nvim',
+    dependencies = { 'nvim-telescope/telescope.nvim' },
+  },
 }
 
 table.insert(lvim.plugins, {
@@ -146,11 +125,3 @@ table.insert(lvim.plugins, {
     if ok then cmp.setup({}) end
   end,
 })
-
-lvim.builtin.telescope.on_config_done = function(telescope)
-  pcall(telescope.load_extension, "frecency")
-  pcall(telescope.load_extension, "lazy")
-  pcall(telescope.load_extension, "tabs")
-  pcall(telescope.load_extension, "quickfix")
-  pcall(telescope.load_extension, "neoclip")
-end

@@ -4,26 +4,26 @@ local wk = lvim.builtin.which_key
 
 wk.mappings["S"] = {
   name = "Persistence",
-  s = { "<cmd>lua require('persistence').load()<cr>", kind.icons.clock .. " Reload last session for dir" },
-  l = { "<cmd>lua require('persistence').load({ last = true })<cr>", kind.icons.clock .. " Restore last session" },
-  Q = { "<cmd>lua require('persistence').stop()<cr>", kind.icons.exit .. " Quit without saving session" },
+  s = { "<cmd>lua require('persistence').load()<cr>", "Reload last session for dir " .. kind.icons.clock },
+  l = { "<cmd>lua require('persistence').load({ last = true })<cr>", "Restore last session " .. kind.icons.clock },
+  Q = { "<cmd>lua require('persistence').stop()<cr>", "Quit without saving session " .. kind.icons.exit },
 }
 
-wk.mappings["l"]["t"] = { ":LvimToggleFormatOnSave<cr>", kind.symbols_outline.File .. " Toggle format-on-save" }
-wk.mappings["l"]["R"] = { ":LspRestart<cr>", kind.icons.exit .. " Restart" }
+wk.mappings["l"]["t"] = { ":LvimToggleFormatOnSave<cr>", "Toggle format-on-save " .. kind.symbols_outline.File }
+wk.mappings["l"]["R"] = { ":LspRestart<cr>", "Restart " .. kind.icons.exit }
 
 wk.mappings["s"]["w"] = {
   "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>') })<cr>",
-  ' ' .. kind.cmp_kind.EnumMember .. " Search Word Under Cursor"
+  "Search Word Under Cursor" .. kind.cmp_kind.EnumMember
 }
 
 wk.mappings["b"]["c"] = {
-  ":%bdelete|edit #|normal`",
+  "<cmd>silent! %bd|e#|bd#<cr>",
   'Close all except current'
 }
 
 wk.mappings["m"] = {
-  name = kind.todo_comments.PERF .. " Harpoon",
+  name = "Harpoon " .. kind.todo_comments.PERF,
   m = { ":lua require('harpoon.mark').add_file()<cr>", "Mark file" },
   t = { ":lua require('harpoon.ui').toggle_quick_menu()<cr>", "Toggle UI" },
   a = { ":lua require('harpoon.ui').nav_file(1)<cr>", "Goto mark 1" },
@@ -40,7 +40,7 @@ wk.mappings["m"] = {
 }
 
 wk.mappings["w"] = {
-  name = kind.icons.screen .. " Window Ctrl",
+  name = "Window Ctrl " .. kind.icons.screen,
   h = { '<C-w>|', 'Maximize window horizontally (|)' },
   v = { '<C-w>_', 'Maximize window vertically (_)' },
   ['='] = { '<C-w>=', 'Resize windows equally' },
@@ -49,7 +49,7 @@ wk.mappings["w"] = {
 }
 
 wk.mappings["G"] = {
-  name = kind.icons.hint .. " Github Copilot",
+  name = "Github Copilot " .. kind.icons.hint,
   a = { ":lua require('copilot.suggestion').accept()<cr>", "Accept" },
   n = { ":lua require('copilot.suggestion').next()<cr>", "Next" },
   N = { ":lua require('copilot.suggestion').prev()<cr>", "Prev" },
@@ -57,7 +57,7 @@ wk.mappings["G"] = {
   t = { ":lua require('copilot.suggestion').toggle_auto_trigger()<cr>", "Toggle Auto Trigger" },
 }
 
-wk.mappings['x'] = { ":xa<cr>", "Save All and Quit", }
+wk.mappings['x'] = { "<cmd>silent! xa<cr>", "Save All and Quit", }
 
 wk.mappings['y'] = { "<cmd>Telescope neoclip<cr>", "Neoclip telescope list", }
 
@@ -66,4 +66,12 @@ wk.mappings["t"] = {
   p = { ':Telescope projects<cr>', 'Projects' }, -- requires telescope-project.nvim plugin
   r = { ':Telescope resume<cr>', 'Resume' },
   l = { ':Telescope lazy<cr>', 'Lazy plugins' },
+}
+
+wk.mappings["u"] = { '<cmd>Telescope undo<cr>', "File history" }
+
+wk.mappings["n"] = {
+  name = "Neorg " .. kind.icons.docs,
+  o = { '<cmd>Neorg index<cr>', 'Open default workspace' },
+  r = { '<cmd>Neorg return<cr>', 'Close Neorg' },
 }

@@ -12,59 +12,16 @@ end
 lvim.log.level = "warn"
 lvim.format_on_save = true
 
-lvim.builtin.treesitter.ensure_installed = {
-  "bash",
-  "c",
-  "javascript",
-  "json",
-  "lua",
-  "python",
-  "typescript",
-  "tsx",
-  "css",
-  "rust",
-  "java",
-  "yaml",
-  "markdown",
-  "markdown_inline"
-}
 
+-- Terminal
 lvim.builtin.terminal.active = true
 lvim.builtin.terminal.open_mapping = "<c-t>"
+
+-- Nvimtree
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 lvim.builtin.nvimtree.setup.filters.custom = {}
-lvim.builtin.telescope.pickers = {
-  layout_config = {
-    preview_width = 100
-  },
-  find_files = {
-    layout_config = {
-      width = 0.50,
-      height = 0.30,
-    },
-  },
-  git_files = {
-    layout_config = {
-      width = 0.50,
-      height = 0.30,
-    },
-  },
-  grep_string = {
-    layout_config = {
-      width = 0.50,
-      height = 0.30,
-    },
-  },
-  live_grep = {
-    preview_width = 1,
 
-    layout_config = {
-      width = 0.50,
-      height = 0.30,
-    },
-  },
-}
 
 -- TODO: ouvrir quickfix avec telescope et trouble
 local actions = require("telescope.actions")
@@ -87,10 +44,28 @@ local telescope = require("telescope")
 --   n = { ["<C-q>"] = trouble.open_with_trouble },
 -- }
 
+-- Treesitter
 lvim.builtin.treesitter.ignore_install = {}
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.autotag.enable = true
+lvim.builtin.treesitter.ensure_installed = {
+  "bash",
+  "c",
+  "javascript",
+  "json",
+  "lua",
+  "python",
+  "typescript",
+  "tsx",
+  "css",
+  "rust",
+  "java",
+  "yaml",
+  "markdown",
+  "markdown_inline"
+}
 
+-- Project
 lvim.builtin.project.patterns = { ">Projects", ".git", "package.json" }
 
 vim.opt.shell = "/bin/zsh"

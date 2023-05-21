@@ -30,22 +30,4 @@ ikeymap("<C-o>ok", "<C-k>OK")
 ikeymap("<C-o>r", "🚀")
 
 -- Confort in insert mode
-keymap("i", "<C-CR>", "<C-c>lo")
-keymap("i", "<C-S-CR>", "<C-c>lO")
-
--- Move selected line
-keymap("v", "J", ":m '>+1<CR>gv=gv")
-keymap("v", "K", ":m '<-2<CR>gv=gv")
-
--- Delete break line
-keymap("n", "J", "mzJ`z")
-
--- stay with the cursor in the middle
-keymap("n", "<C-d>", "<C-d>zz")
-keymap("n", "<C-u>", "<C-u>zz")
-keymap("n", "n", "nzzzv")
-keymap("n", "N", "Nzzzv")
-keymap("n", "*", "*zz")
-keymap("n", "#", "#zz")
-keymap("n", "g*", "g*zz")
-keymap("n", "g#", "g#zz")
+ikeymap("<C-Enter>", "<C-c>lo")
