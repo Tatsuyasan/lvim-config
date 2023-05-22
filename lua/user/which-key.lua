@@ -75,3 +75,8 @@ wk.mappings["n"] = {
   o = { '<cmd>Neorg index<cr>', 'Open default workspace' },
   r = { '<cmd>Neorg return<cr>', 'Close Neorg' },
 }
+
+wk.mappings["g"]["n"] = {
+  "<cmd>Neogit<cr>",
+  'Neogit'
+}

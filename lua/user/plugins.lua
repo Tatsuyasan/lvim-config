@@ -18,6 +18,14 @@ lvim.plugins = {
   { 'kevinhwang91/nvim-hlslens' },
   { 'karb94/neoscroll.nvim' },
   { 'rainbowhxch/beacon.nvim' },
+  { 'sindrets/diffview.nvim' },
+  {
+    'TimUntersberger/neogit',
+    dependencies = {
+      { 'nvim-lua/plenary.nvim' },
+      { 'sindrets/diffview.nvim' }
+    }
+  },
 
   -- Themes
   { 'lunarvim/lunar.nvim' },
