@@ -1,26 +1,36 @@
+require 'user.colorscheme.tokyonight'
+require 'user.colorscheme.catppuccin'
+require 'user.colorscheme.onedark'
+
 local themes = {
-  gruvbox = "gruvbox",
-  rose_pine = "rose-pine",
-  lunar = "lunar",
-  gruvbox_material = "gruvbox-material",
-  onedarker = "onedarker",
-  onedark = "onedark",
-  horizon = "horizon",
+  -- There is many others, check it with <leader>sp
+  -- Many of them need to be config - put it in colorscheme folder
   tokyonight = "tokyonight",
   tokyonight_night = "tokyonight-night",
   tokyonight_day = "tokyonight-day",
   tokyonight_moon = "tokyonight-moon",
+  catppuccin = "catppuccin",
+  gruvbox = "gruvbox",
+  gruvbox_material = "gruvbox-material",
+  rose_pine = "rose-pine",
+  lunar = "lunar",
+  onedark = "onedark",
+  horizon = "horizon",
   desert = "desert",
   morning = "morning",
   sonokai = "sonokai",
   edge = "edge",
   ayu = "ayu",
+  everforest = "everforest",
 }
 
 lvim.transparent_window = true
-lvim.colorscheme = themes.tokyonight_night
+lvim.colorscheme = themes.tokyonight_moon
 
 local extra_opts = {
+  everforest = {
+    transparent_background = 2
+  },
   sonokai = {
     styles = {
       espresso = "espresso",
@@ -47,12 +57,7 @@ local extra_opts = {
   },
 }
 
-if vim.g.neovide then
-  lvim.transparent_window = false
-  return
-end
 
-vim.g.tokyonight_night_transparent_background = 2
 if lvim.colorscheme == themes.gruvbox_material then
   vim.g.gruvbox_material_transparent_background = 2
 end
@@ -67,6 +72,11 @@ if lvim.colorscheme == themes.edge then
   vim.g.edge_style = extra_opts.edge.styles.aura
   lvim.builtin.lualine.options.theme = extra_opts.edge.lualine_theme
 end
+
+if lvim.colorscheme == themes.everforest then
+  vim.g.everforest_transparent_background = extra_opts.everforest.transparent_background
+end
+
 
 if lvim.colorscheme == themes.ayu then
   vim.g.ayucolor = extra_opts.ayu.styles.mirage

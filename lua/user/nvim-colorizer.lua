@@ -11,6 +11,7 @@ colorizer.setup({
     "javascriptreact",
     "css",
     "scss",
+    "vue",
     "html",
     "lua",
   },

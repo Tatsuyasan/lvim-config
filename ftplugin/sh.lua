@@ -8,14 +8,14 @@ local opts = lvim.builtin.which_key.opts
 
 local mappings = {
   ["z"] = {
-    name = " echo",
+    name = "echo",
     l = { '"ayiwoecho "<C-R>a: $<C-R>a"<Esc>', " echo" },
   }
 }
 
 local vmappings = {
   ["z"] = {
-    name = " echo",
+    name = "echo",
     l = { 'yoecho "<esc>pa: $<esc>p"' }
   }
 }

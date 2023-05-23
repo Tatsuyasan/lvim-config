@@ -12,6 +12,7 @@ lvim.plugins = {
   },
   { 'jose-elias-alvarez/typescript.nvim' },
   { 'windwp/nvim-autopairs' },
+  { 'windwp/nvim-ts-autotag' },
   { 'NvChad/nvim-colorizer.lua' },
   { 'petertriho/nvim-scrollbar' },
   { 'mbbill/undotree' },
@@ -19,6 +20,24 @@ lvim.plugins = {
   { 'karb94/neoscroll.nvim' },
   { 'rainbowhxch/beacon.nvim' },
   { 'sindrets/diffview.nvim' },
+  {
+    "smjonas/inc-rename.nvim",
+    config = function()
+      require("inc_rename").setup()
+    end,
+  },
+  {
+    "mrjones2014/nvim-ts-rainbow",
+  },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      "rcarriga/nvim-notify",
+    }
+  },
   {
     'TimUntersberger/neogit',
     dependencies = {
@@ -29,9 +48,12 @@ lvim.plugins = {
 
   -- Themes
   { 'lunarvim/lunar.nvim' },
+  { "catppuccin/nvim",         name = "catppuccin" },
   { "morhetz/gruvbox" },
   { "sainnhe/gruvbox-material" },
+  { "sainnhe/everforest" },
   { "sainnhe/sonokai" },
+  { 'navarasu/onedark.nvim' },
   { "sainnhe/edge" },
   { "lunarvim/horizon.nvim" },
   { "tomasr/molokai" },
@@ -124,12 +146,12 @@ lvim.plugins = {
   },
 }
 
-table.insert(lvim.plugins, {
-  "zbirenbaum/copilot-cmp",
-  event = "InsertEnter",
-  dependencies = { "zbirenbaum/copilot.lua" },
-  config = function()
-    local ok, cmp = pcall(require, "copilot_cmp")
-    if ok then cmp.setup({}) end
-  end,
-})
+-- table.insert(lvim.plugins, {
+--   "zbirenbaum/copilot-cmp",
+--   event = "InsertEnter",
+--   dependencies = { "zbirenbaum/copilot.lua" },
+--   config = function()
+--     local ok, cmp = pcall(require, "copilot_cmp")
+--     if ok then cmp.setup({}) end
+--   end,
+-- })

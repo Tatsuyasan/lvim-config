@@ -8,7 +8,7 @@ local opts = lvim.builtin.which_key.opts
 
 local mappings = {
   ["z"] = {
-    name = " Print",
+    name = "Print",
     l = { '"ayiwoP(\'<C-R>a:\', <C-R>a);<Esc>', " Pretty Print" },
   }
 }

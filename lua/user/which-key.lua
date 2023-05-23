@@ -80,3 +80,7 @@ wk.mappings["g"]["n"] = {
   "<cmd>Neogit<cr>",
   'Neogit'
 }
+
+wk.mappings["q"] = { "<cmd>confirm q<CR>", "Close Window" }
+
+wk.mappings["d"]["T"] = { '<cmd>TroubleToggle workspace_diagnostics<cr>', 'Trouble Toggle' }
