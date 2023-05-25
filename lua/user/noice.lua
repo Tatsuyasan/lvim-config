@@ -52,7 +52,7 @@ noice.setup({
           border = { text = { top = ' rename ' } },
         },
       },
-      help = { pattern = "^:%s*h%s+", icon = "💡", opts = cmdline_opts(' Help ') },
+      help = { pattern = "^:%s*h%s+", icon = "💡", opts = cmdline_opts(' help ') },
     },
   },
   messages = { view_search = false },
@@ -89,19 +89,44 @@ noice.setup({
     inc_rename = true
   },
   routes = {
-    { filter = { find = "E162" },                                   view = "mini" },
-    { filter = { event = "msg_show", kind = "", find = "written" }, view = "mini" },
-    { filter = { event = "msg_show", find = "search hit BOTTOM" },  skip = "mini" },
-    { filter = { event = "msg_show", find = "Hop" },                skip = "mini" },
-    { filter = { event = "msg_show", find = "before #" },           skip = "mini" },
-    { filter = { event = "msg_show", find = "after #" },            skip = "mini" },
-    { filter = { event = "msg_show", find = "fewer lines" },        skip = "mini" },
-    { filter = { event = "msg_show", find = "lines moved" },        skip = true },
-    { filter = { event = "msg_show", find = "search hit TOP" },     skip = true },
-    { filter = { event = "emsg", find = "E23" },                    skip = true },
-    { filter = { event = "emsg", find = "E20" },                    skip = true },
-    { filter = { event = "emsg", find = "E315" },                   skip = true },
-    { filter = { find = "No signature help" },                      skip = true },
-    { filter = { find = "E37" },                                    skip = true },
+    -- See https://github.com/folke/noice.nvim#-filters
+    {
+      view = "split",
+      filter = {
+        any = {
+          { min_width = 150 },
+          { warning = true },
+        },
+      },
+    },
+    {
+      view = "mini",
+      filter = {
+        any = {
+          { event = "msg_show", find = "B written" },
+          { event = "msg_show", find = "Hop" },
+          { event = "emsg",     find = "Pattern not found" },
+          { find = "E486" },
+        },
+      },
+    },
+    {
+      view = "popup", -- Center floating window with focus
+      filter = {
+        any = {
+          -- { cmdline = true },
+        },
+      }
+    },
+    {
+      skip = true,
+      filter = {
+        any = {
+          { event = "msg_show", find = "fewer lines" },
+          { event = "msg_show", find = "lines moved" },
+          { find = "E315" },
+        }
+      }
+    }
   },
 })

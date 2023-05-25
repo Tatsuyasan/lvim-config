@@ -31,15 +31,13 @@ lvim.plugins = {
   },
   {
     "folke/noice.nvim",
-    event = "VeryLazy",
+    event = "verylazy",
     dependencies = {
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      "rcarriga/nvim-notify",
+      "muniftanjim/nui.nvim",
     }
   },
   {
-    'TimUntersberger/neogit',
+    'timuntersberger/neogit',
     dependencies = {
       { 'nvim-lua/plenary.nvim' },
       { 'sindrets/diffview.nvim' }
@@ -74,24 +72,6 @@ lvim.plugins = {
   {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
-    opts = {
-      load = {
-        ["core.defaults"] = {}, -- Loads default behaviour
-        ["core.concealer"] = {
-          config = {
-            icon_preset = 'diamond'
-          },
-        },                  -- Adds pretty icons to your documents
-        ["core.dirman"] = { -- Manages Neorg workspaces
-          config = {
-            workspaces = {
-              notes = "~/notes",
-            },
-            default_workspace = "notes"
-          },
-        },
-      },
-    },
     dependencies = { "nvim-lua/plenary.nvim" },
   },
   { "christoomey/vim-tmux-navigator" },

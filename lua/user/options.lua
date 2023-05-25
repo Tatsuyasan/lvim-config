@@ -35,6 +35,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "java",
   "yaml",
+  "norg",
   "markdown",
   "markdown_inline"
 }
@@ -47,14 +48,13 @@ local options = {
   -- DISPLAY
   number = true,
   relativenumber = true,
-  -- sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions",
+  sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions",
+  conceallevel = 2,
   cursorline = true,
   fileencoding = "utf-8",
   splitbelow = true,
   splitright = true,
-  smartindent = true,
   termguicolors = true, -- to enable highlight groups
-  updatetime = 1000,
   -- SEARCH
   ignorecase = true,
   smartcase = true,

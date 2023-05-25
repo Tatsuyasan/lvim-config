@@ -1,4 +1,14 @@
 local kind = require('user.kind')
+local filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'html' }
+local opts = { name = 'eslint_d', filetypes = filetypes }
+
+local formatters = require 'lvim.lsp.null-ls.formatters'
+local linters = require 'lvim.lsp.null-ls.linters'
+local code_actions = require "lvim.lsp.null-ls.code_actions"
+
+formatters.setup({ opts })
+linters.setup({ opts })
+code_actions.setup({ opts })
 
 lvim.lsp.installer.setup.automatic_installation = true
 lvim.lsp.installer.setup.ensure_installed = {
@@ -9,6 +19,7 @@ lvim.lsp.installer.setup.ensure_installed = {
   'emmet_ls',
   'tsserver'
 }
+
 lvim.lsp.on_attach_callback = function(_, _)
   if lvim.colorscheme == 'gruvbox' then
     -- change coloring of errors so I can actually read them with gruvbox
@@ -46,6 +57,10 @@ lvim.lsp.buffer_mappings.normal_mode["gD"] = {
 lvim.lsp.buffer_mappings.normal_mode["gf"] = {
   ":Telescope frecency<cr>",
   kind.cmp_kind.Reference .. " Telescope Frecency"
+}
+
+require 'lspconfig'.volar.setup {
+  filetypes = filetypes
 }
 
 -- lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
