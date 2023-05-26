@@ -23,6 +23,9 @@ lvim.keys.normal_mode["<C-q>"] = "<cmd>Lspsaga show_buf_diagnostics<cr>"
 
 nkeymap("zs", ":lua require'telescope.builtin'.spell_suggest()<cr>")
 
+nkeymap("<M-h>", ":BufferLineMovePrev<cr>")
+nkeymap("<M-l>", ":BufferLineMoveNext<cr>")
+
 nkeymap("gR", function()
   return ":IncRename " .. vim.fn.expand("<cword>")
 end, { expr = true })

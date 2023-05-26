@@ -29,13 +29,13 @@ lvim.plugins = {
   {
     "mrjones2014/nvim-ts-rainbow",
   },
-  {
-    "folke/noice.nvim",
-    event = "verylazy",
-    dependencies = {
-      "muniftanjim/nui.nvim",
-    }
-  },
+  -- {
+  --   "folke/noice.nvim",
+  --   event = "verylazy",
+  --   dependencies = {
+  --     "muniftanjim/nui.nvim",
+  --   }
+  -- },
   {
     'timuntersberger/neogit',
     dependencies = {

@@ -14,8 +14,7 @@ neorg.setup({
       config = {
         engine = 'nvim-cmp'
       }
-    },                         -- Loads default behaviour
-    ["core.ui.calendar"] = {}, -- Loads default behaviour
+    }, -- Loads default behaviour
     ["core.concealer"] = {
       config = {
         icon_preset = 'diamond'

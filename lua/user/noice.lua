@@ -122,9 +122,10 @@ noice.setup({
       skip = true,
       filter = {
         any = {
-          { event = "msg_show", find = "fewer lines" },
-          { event = "msg_show", find = "lines moved" },
+          { event = "msg_show",   find = "fewer lines" },
+          { event = "msg_show",   find = "lines moved" },
           { find = "E315" },
+          { find = "code_actions" },
         }
       }
     }

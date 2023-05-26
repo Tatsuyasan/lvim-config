@@ -1,6 +1,5 @@
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.lint_on_save = true
 
 -- Telescope
 lvim.builtin.telescope.defaults.path_display = {
@@ -49,7 +48,6 @@ local options = {
   number = true,
   relativenumber = true,
   sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions",
-  conceallevel = 2,
   cursorline = true,
   fileencoding = "utf-8",
   splitbelow = true,
