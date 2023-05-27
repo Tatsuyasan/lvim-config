@@ -50,7 +50,9 @@ ikeymap("<C-o>r", "🚀")
 -- Confort in insert mode
 ikeymap("<C-Enter>", "<C-c>lo")
 
+
 -- Better escape
+vim.keymap.set('n', '<Esc>', ':noh<return><esc>')
 vim.keymap.set({ 'n', 'v', 'i' }, '<C-c>', "<Esc>")
 
 nkeymap('gn', ":tabe %<CR>")

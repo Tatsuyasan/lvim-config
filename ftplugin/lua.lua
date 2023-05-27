@@ -9,14 +9,14 @@ local opts = lvim.builtin.which_key.opts
 local mappings = {
   ["z"] = {
     name = "Print",
-    l = { '"ayiwoP(\'<C-R>a:\', <C-R>a);<Esc>', " Pretty Print" },
+    l = { '"ayiwovim.print(\'<C-R>a:\', <C-R>a);<Esc>', " Pretty Print" },
   }
 }
 
 local vmappings = {
   ['z'] = {
     name = 'Print',
-    l = { 'yoP(\'<esc>pa\', <esc>pa)<Esc>', " Pretty Print" },
+    l = { 'yovim.print(\'<esc>pa\', <esc>pa)<Esc>', " Pretty Print" },
   },
 }
 
