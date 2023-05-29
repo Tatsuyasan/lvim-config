@@ -1,7 +1,4 @@
 local kind = require('user.kind')
-local linters = require "lvim.lsp.null-ls.linters"
-local formatters = require "lvim.lsp.null-ls.formatters"
-local code_actions = require "lvim.lsp.null-ls.code_actions"
 
 lvim.lsp.installer.setup.automatic_installation = true
 lvim.lsp.installer.setup.ensure_installed = {
@@ -10,7 +7,8 @@ lvim.lsp.installer.setup.ensure_installed = {
   'html',
   'cssls',
   'emmet_ls',
-  'tsserver'
+  'tsserver',
+  'volar'
 }
 
 lvim.lsp.on_attach_callback = function(_, _)
@@ -24,33 +22,6 @@ lvim.lsp.on_attach_callback = function(_, _)
 end
 
 vim.diagnostic.config({ float = { focusable = true, max_width = 120 } })
-
-code_actions.setup {
-  {
-    command = "eslint_d"
-  }
-}
-
-linters.setup {
-  {
-    command = "eslint_d"
-  }
-}
-
-formatters.setup {
-  {
-    -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
-    command = "eslint_d",
-    filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact", "vue", "svelte" }
-    ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-  },
-  {
-    -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
-    command = "prettierd",
-    filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact", "vue", "svelte" }
-  },
-}
-
 
 -- Lsp Keymaps
 lvim.lsp.buffer_mappings.normal_mode["K"] = {

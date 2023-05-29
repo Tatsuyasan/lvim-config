@@ -52,8 +52,9 @@ ikeymap("<C-Enter>", "<C-c>lo")
 
 
 -- Better escape
-vim.keymap.set('n', '<Esc>', ':noh<return><esc>')
-vim.keymap.set({ 'n', 'v', 'i' }, '<C-c>', "<Esc>")
+-- vim.keymap.set('n', '<Esc>', ':noh<return><esc>')
+-- Combine escape and no highliting
+vim.keymap.set({ 'n', 'v', 'i' }, '<C-c>', "<Esc>:noh<return><Esc>")
 
 nkeymap('gn', ":tabe %<CR>")
 
