@@ -11,7 +11,7 @@ lvim.lsp.installer.setup.ensure_installed = {
   'volar'
 }
 
-lvim.lsp.on_attach_callback = function(_, _)
+lvim.lsp.on_attach_callback = function(_, bufnr)
   if lvim.colorscheme == 'gruvbox' then
     -- change coloring of errors so I can actually read them with gruvbox
     vim.cmd(':hi DiagnosticError guifg=#de5b64 guibg=#1C1C1C')
