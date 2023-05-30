@@ -1,10 +1,10 @@
 lvim.plugins = {
   {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
     config = function()
-      require("copilot").setup({
+      require('copilot').setup({
         suggestions = { enabled = false },
         panel = { enabled = false },
       })
@@ -21,21 +21,14 @@ lvim.plugins = {
   { 'rainbowhxch/beacon.nvim' },
   { 'sindrets/diffview.nvim' },
   {
-    "smjonas/inc-rename.nvim",
+    'smjonas/inc-rename.nvim',
     config = function()
-      require("inc_rename").setup()
+      require('inc_rename').setup()
     end,
   },
   {
-    "mrjones2014/nvim-ts-rainbow",
+    'mrjones2014/nvim-ts-rainbow',
   },
-  -- {
-  --   "folke/noice.nvim",
-  --   event = "verylazy",
-  --   dependencies = {
-  --     "muniftanjim/nui.nvim",
-  --   }
-  -- },
   {
     'timuntersberger/neogit',
     dependencies = {
@@ -46,38 +39,40 @@ lvim.plugins = {
 
   -- Themes
   { 'lunarvim/lunar.nvim' },
-  { "catppuccin/nvim",         name = "catppuccin" },
-  { "morhetz/gruvbox" },
-  { "sainnhe/gruvbox-material" },
-  { "sainnhe/everforest" },
-  { "sainnhe/sonokai" },
+  { 'catppuccin/nvim',         name = "catppuccin" },
+  { 'morhetz/gruvbox' },
+  { 'sainnhe/gruvbox-material' },
+  { 'sainnhe/everforest' },
+  { 'sainnhe/sonokai' },
   { 'navarasu/onedark.nvim' },
-  { "sainnhe/edge" },
-  { "lunarvim/horizon.nvim" },
-  { "tomasr/molokai" },
-  { "ayu-theme/ayu-vim" },
+  { 'sainnhe/edge' },
+  { 'lunarvim/horizon.nvim' },
+  { 'tomasr/molokai' },
+  { 'ayu-theme/ayu-vim' },
 
   {
-    "folke/trouble.nvim",
+    'folke/trouble.nvim',
     cmd = "TroubleToggle",
   },
   {
-    "folke/todo-comments.nvim",
+    'folke/todo-comments.nvim',
     event = "BufRead",
   },
   {
-    "folke/persistence.nvim",
+    'folke/persistence.nvim',
     event = "BufReadPre",
   },
+  { 'folke/zen-mode.nvim' },
+
   {
-    "nvim-neorg/neorg",
-    build = ":Neorg sync-parsers",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    'nvim-neorg/neorg',
+    build = ':Neorg sync-parsers',
+    dependencies = { 'nvim-lua/plenary.nvim' },
   },
-  { "christoomey/vim-tmux-navigator" },
-  { "tpope/vim-surround" },
-  { "tpope/vim-repeat" },
-  { "ThePrimeagen/harpoon" },
+  { 'christoomey/vim-tmux-navigator' },
+  { 'tpope/vim-surround' },
+  { 'tpope/vim-repeat' },
+  { 'ThePrimeagen/harpoon' },
   {
     'phaazon/hop.nvim',
     branch = 'v2',
@@ -92,7 +87,7 @@ lvim.plugins = {
     end,
   },
   {
-    "AckslD/nvim-neoclip.lua",
+    'AckslD/nvim-neoclip.lua',
     dependencies = {
       { 'kkharji/sqlite.lua', module = 'sqlite' },
       {
@@ -102,9 +97,9 @@ lvim.plugins = {
   },
   -- LSP saga
   {
-    "glepnir/lspsaga.nvim",
-    event = "LspAttach",
-    dependencies = { "nvim-tree/nvim-web-devicons" }
+    'glepnir/lspsaga.nvim',
+    event = 'LspAttach',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
   },
 
   -- Telescope extensions

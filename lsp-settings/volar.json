@@ -1,3 +1,8 @@
 {
-  "vue.codeLens.enabled": true
+  "vue.codeLens.enabled": true,
+  "vue.inlayHints.missingProps": true,
+  "vue.inlayHints.optionsWrapper": true,
+  "vue.inlayHints.inlineHandlerLeading": true,
+  "vue.codeActions.enabled": true,
+  "vue.autoInsert.dotValue": true
 }

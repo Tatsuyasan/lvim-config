@@ -4,7 +4,8 @@ if not scrollbar_ok then
   return
 end
 
-scrollbar.setup({
+scrollbar.setup
+{
   show = true,
   show_in_active_only = false,
   set_highlights = true,
@@ -120,8 +121,8 @@ scrollbar.setup({
   handlers = {
     cursor = true,
     diagnostic = true,
-    gitsigns = false, -- Requires gitsigns
+    gitsigns = true, -- Requires gitsigns
     handle = true,
-    search = true,    -- Requires hlslens
+    search = true,   -- Requires hlslens
   },
-})
+}

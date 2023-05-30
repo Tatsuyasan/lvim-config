@@ -42,6 +42,9 @@ lvim.builtin.treesitter.ensure_installed = {
 -- Project
 lvim.builtin.project.patterns = { ">Projects", ".git", "package.json" }
 
+-- Open link with gx (wsl)
+vim.g.netrw_browsex_viewer = "cmd.exe /C start"
+
 local options = {
   shell = '/bin/zsh',
   -- DISPLAY
