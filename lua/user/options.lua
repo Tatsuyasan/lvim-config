@@ -9,7 +9,7 @@ lvim.builtin.telescope.defaults.path_display = {
 
 -- Terminal
 lvim.builtin.terminal.active = true
-lvim.builtin.terminal.open_mapping = "<c-t>"
+lvim.builtin.terminal.open_mapping = "<c-b>"
 
 -- Nvimtree
 lvim.builtin.nvimtree.setup.view.side = "left"
