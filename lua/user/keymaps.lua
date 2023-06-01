@@ -16,16 +16,22 @@ end
 lvim.leader = "space"
 vim.g.maplocalleader = ","
 
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+-- Save normal/insert mode
+lvim.keys.normal_mode["<C-s>"] = "<cmd>w<cr>"
+lvim.keys.insert_mode["<C-s>"] = "<esc><cmd>:w<cr>a"
+-- Move through tabs
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+-- Lspaga diagnostics
 lvim.keys.normal_mode["<C-q>"] = "<cmd>Lspsaga show_buf_diagnostics<cr>"
 
 nkeymap("zs", ":lua require'telescope.builtin'.spell_suggest()<cr>")
 
-nkeymap("<M-h>", ":BufferLineMovePrev<cr>")
-nkeymap("<M-l>", ":BufferLineMoveNext<cr>")
+-- Move position tabs
+nkeymap("<M-left>", ":BufferLineMovePrev<cr>")
+nkeymap("<M-right>", ":BufferLineMoveNext<cr>")
 
+-- Rename in buffer word under cursor
 nkeymap("gR", function()
   return ":IncRename " .. vim.fn.expand("<cword>")
 end, { expr = true })
@@ -48,17 +54,10 @@ ikeymap("<C-o>ok", "<C-k>OK")
 ikeymap("<C-o>r", "🚀")
 
 -- Confort in insert mode
-ikeymap("<C-Enter>", "<C-c>lo")
+-- ikeymap("<C-Enter>", "<esc>lo")
 
 
--- Better escape
--- vim.keymap.set('n', '<Esc>', ':noh<return><esc>')
--- Combine escape and no highliting
+-- Better escape - combine escape and no highliting
 vim.keymap.set({ 'n', 'v', 'i' }, '<C-c>', "<Esc>:noh<return><Esc>")
 
 nkeymap('gn', ":tabe %<CR>")
-
--- Rename word current buffer
-nkeymap("gR", function()
-  return ":IncRename " .. vim.fn.expand("<cword>")
-end, { expr = true })
