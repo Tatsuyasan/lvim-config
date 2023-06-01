@@ -1,5 +1,6 @@
 lvim.log.level = "warn"
 lvim.format_on_save = true
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 
 -- Telescope
 lvim.builtin.telescope.defaults.path_display = {
@@ -56,13 +57,13 @@ local options = {
   splitbelow = true,
   splitright = true,
   termguicolors = true, -- to enable highlight groups
+  linebreak = true,
+  wrap = false,
   -- SEARCH
   ignorecase = true,
   smartcase = true,
   -- REMOVE BEEP
   errorbells = false,
-
-  -- CUSTOM
 }
 
 for key, value in pairs(options) do

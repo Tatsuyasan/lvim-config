@@ -48,6 +48,7 @@ lvim.plugins = {
   { 'sainnhe/edge' },
   { 'lunarvim/horizon.nvim' },
   { 'tomasr/molokai' },
+  { 'Mofiqul/dracula.nvim' },
   { 'ayu-theme/ayu-vim' },
 
   {
@@ -101,7 +102,6 @@ lvim.plugins = {
     event = 'LspAttach',
     dependencies = { 'nvim-tree/nvim-web-devicons' }
   },
-
   -- Telescope extensions
   {
     'nvim-telescope/telescope-frecency.nvim',
