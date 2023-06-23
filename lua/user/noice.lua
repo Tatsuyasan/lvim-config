@@ -62,8 +62,8 @@ noice.setup({
       ["vim.lsp.util.stylize_markdown"] = true,
       ["cmp.entry.get_documentation"] = true,
     },
-    hover = { enabled = true },
-    signature = { enabled = true },
+    hover = { enabled = false },
+    signature = { enabled = false },
     documentation = {
       opts = {
         win_options = {

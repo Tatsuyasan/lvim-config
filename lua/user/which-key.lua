@@ -76,6 +76,12 @@ wk.mappings["n"] = {
   r = { '<cmd>Neorg return<cr>', 'Close Neorg' },
 }
 
+wk.mappings["n"]["j"] = {
+  name = "Journal " .. kind.icons.docs,
+  d = { '<cmd>Neorg journal today <cr>', 'Today' },
+  t = { '<cmd>Neorg journal tomorrow <cr>', 'Tomorrow' },
+}
+
 wk.mappings["g"]["n"] = {
   "<cmd>Neogit<cr>",
   'Neogit'

@@ -10,6 +10,7 @@ lvim.plugins = {
       })
     end,
   },
+  { 'nvim-treesitter/playground' },
   { 'jose-elias-alvarez/typescript.nvim' },
   { 'windwp/nvim-autopairs' },
   { 'windwp/nvim-ts-autotag' },
@@ -34,6 +35,13 @@ lvim.plugins = {
     dependencies = {
       { 'nvim-lua/plenary.nvim' },
       { 'sindrets/diffview.nvim' }
+    }
+  },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
     }
   },
 

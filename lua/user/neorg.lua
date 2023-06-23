@@ -28,5 +28,7 @@ neorg.setup({
         default_workspace = "notes"
       },
     },
+    ["core.export"] = {},
+    ["core.export.markdown"] = {},
   },
 })

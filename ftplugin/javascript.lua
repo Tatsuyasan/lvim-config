@@ -7,15 +7,6 @@ local vopts = lvim.builtin.which_key.vopts
 local opts = lvim.builtin.which_key.opts
 
 local mappings = {
-  -- C = {
-  --   name = "Javascript",
-  --   i = { "<cmd>TypescriptAddMissingImports<Cr>", "AddMissingImports" },
-  --   o = { "<cmd>TypescriptOrganizeImports<cr>", "OrganizeImports" },
-  --   u = { "<cmd>TypescriptRemoveUnused<Cr>", "RemoveUnused" },
-  --   r = { "<cmd>TypescriptRenameFile<Cr>", "RenameFile" },
-  --   f = { "<cmd>TypescriptFixAll<Cr>", "FixAll" },
-  --   g = { "<cmd>TypescriptGoToSourceDefinition<Cr>", "GoToSourceDefinition" },
-  -- },
   ["z"] = {
     name = "console.log",
     l = { '"ayiwoconsole.log(\'<C-R>a:\', <C-R>a);<Esc>', "console.log" },

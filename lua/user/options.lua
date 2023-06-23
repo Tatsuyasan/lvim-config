@@ -56,6 +56,7 @@ local options = {
   fileencoding = "utf-8",
   splitbelow = true,
   splitright = true,
+  -- conceallevel = 2,
   termguicolors = true, -- to enable highlight groups
   linebreak = true,
   wrap = false,

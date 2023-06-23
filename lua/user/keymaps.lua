@@ -58,6 +58,6 @@ ikeymap("<C-o>r", "🚀")
 
 
 -- Better escape - combine escape and no highliting
-vim.keymap.set({ 'n', 'v', 'i' }, '<C-c>', "<Esc>:noh<return><Esc>")
+keymap({ 'n', 'v', 'i' }, '<C-c>', "<Esc>:noh<return><Esc>")
 
 nkeymap('gn', ":tabe %<CR>")

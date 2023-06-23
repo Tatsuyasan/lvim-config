@@ -21,6 +21,14 @@ lvim.lsp.on_attach_callback = function(_, _)
   end
 end
 
+require "nvim-treesitter.configs".setup {
+  query_linter = {
+    enable = true,
+    use_virtual_text = true,
+    lint_events = { "BufWrite", "CursorHold" },
+  },
+}
+
 vim.diagnostic.config({ float = { focusable = true, max_width = 120 } })
 
 -- Lsp Keymaps
@@ -30,7 +38,7 @@ lvim.lsp.buffer_mappings.normal_mode["K"] = {
 }
 
 lvim.lsp.buffer_mappings.normal_mode["gr"] = {
-  ":lua require'telescope.builtin'.lsp_references()<cr>",
+  ":lua require'telescope.builtin'.lsp_references({ includeDeclaration = false })<cr>",
   kind.cmp_kind.Reference .. " Find references"
 }
 
